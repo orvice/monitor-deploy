@@ -20,5 +20,5 @@ services:
     ports:
       - 81:80
     environment:
-      - API_URI=http://domain.com:8081s
+      - API_URI=http://domain.com:8081
     container_name: monitor-ui
