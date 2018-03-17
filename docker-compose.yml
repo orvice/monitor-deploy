@@ -18,7 +18,7 @@ services:
     image: orvice/monitor-ui
     restart: always
     volumes:
-      - ./log:/var/log
+      - ./log:/var/log/nginx
     ports:
       - 81:80
     environment:
