@@ -6,7 +6,9 @@ services:
     restart: always
     volumes:
       - ./log:/var/log
-      - ./config:/etc/monitor-server/
+      - ./config:/etc/monitor-server
+    ports:
+      - 82:8081
     environment:
       - NODE_CONFIG_PATH=/etc/monitor-server/config.json
       - LISTEN_ADDR=:8081
@@ -20,5 +22,5 @@ services:
     ports:
       - 81:80
     environment:
-      - API_URI=http://domain.com:8081
+      - API_URI=http://domain.com:82
     container_name: monitor-ui
