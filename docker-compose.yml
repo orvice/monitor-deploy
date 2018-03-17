@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+  api:
+    image: orvice/monitor-server
+    restart: always
+    volumes:
+      - ./log:/var/log
+      - ./config:/etc/monitor-server/
+    environment:
+      - NODE_CONFIG_PATH=/etc/monitor-server/config.json
+      - LISTEN_ADDR=:8081
+    container_name: monitor-server
+
+  ui:
+    image: orvice/monitor-ui
+    restart: always
+    volumes:
+      - ./log:/var/log
+    ports:
+      - 81:80
+    environment:
+      - API_URI=http://domain.com:8081s
+    container_name: monitor-ui
