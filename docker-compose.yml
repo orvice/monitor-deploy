@@ -23,4 +23,5 @@ services:
       - 81:80
     environment:
       - API_URI=http://domain.com:82
+      - APP_NAME=BlackCat
     container_name: monitor-ui
