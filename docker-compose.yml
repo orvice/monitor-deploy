@@ -5,13 +5,14 @@ services:
     image: orvice/monitor-server
     restart: always
     volumes:
-      - ./log:/var/log
+      - ./log:/app/log
       - ./config:/etc/monitor-server
     ports:
       - 82:8081
     environment:
       - NODE_CONFIG_PATH=/etc/monitor-server/config.json
       - LISTEN_ADDR=:8081
+      - POST_KEY=key
     container_name: monitor-server
 
   ui:
